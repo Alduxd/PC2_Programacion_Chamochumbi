@@ -1,0 +1,38 @@
+@model PetAdoptionApp.Models.Adoption
+
+@{
+    ViewData["Title"] = "Detalles de Adopción";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Adopción #@Model.Id</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Mascota</dt>
+        <dd class="col-sm-9">
+            <a asp-controller="Pets" asp-action="Details" asp-route-id="@Model.PetId">
+                @Model.Pet.Name (@Model.Pet.Type)
+            </a>
+        </dd>
+        
+        <dt class="col-sm-3">Adoptante</dt>
+        <dd class="col-sm-9">
+            <a asp-controller="Adopters" asp-action="Details" asp-route-id="@Model.AdopterId">
+                @Model.Adopter.FullName
+            </a>
+        </dd>
+        
+        <dt class="col-sm-3">Fecha de Adopción</dt>
+        <dd class="col-sm-9">@Model.AdoptionDate.ToString("dd/MM/yyyy HH:mm")</dd>
+        
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">
+            <span class="badge bg-success">Completada</span>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+</div>

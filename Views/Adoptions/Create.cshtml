@@ -1,0 +1,41 @@
+@model PetAdoptionApp.ViewModels.AdoptionViewModel
+
+@{
+    ViewData["Title"] = "Registrar Nueva Adopción";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="PetId" class="control-label">Mascota</label>
+                <select asp-for="PetId" class="form-control" asp-items="ViewBag.PetId" required>
+                    <option value="">-- Seleccione una mascota --</option>
+                </select>
+                <span asp-validation-for="PetId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="AdopterId" class="control-label">Adoptante</label>
+                <select asp-for="AdopterId" class="form-control" asp-items="ViewBag.AdopterId" required>
+                    <option value="">-- Seleccione un adoptante --</option>
+                </select>
+                <span asp-validation-for="AdopterId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrar Adopción</button>
+                <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
