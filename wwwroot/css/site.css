@@ -1,0 +1,39 @@
+/* Estilos generales */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    margin-bottom: 60px;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+  }
+  
+  /* Estilos para las tarjetas en la página de inicio */
+  .card {
+    transition: transform 0.3s;
+    height: 100%;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para los formularios */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos para las tablas */
+  .table {
+    margin-top: 1rem;
+  }
+  

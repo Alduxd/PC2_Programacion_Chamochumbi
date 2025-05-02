@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sistema de Adopción de Mascotas</h1>
+    <p>Bienvenido al sistema de gestión de adopciones de mascotas.</p>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mascotas</h5>
+                <p class="card-text">Registra y administra las mascotas disponibles para adopción.</p>
+                <a asp-controller="Pets" asp-action="Index" class="btn btn-primary">Ir a Mascotas</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Adoptantes</h5>
+                <p class="card-text">Gestiona las personas interesadas en adoptar mascotas.</p>
+                <a asp-controller="Adopters" asp-action="Index" class="btn btn-primary">Ir a Adoptantes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Adopciones</h5>
+                <p class="card-text">Asigna mascotas a adoptantes y visualiza las adopciones realizadas.</p>
+                <a asp-controller="Adoptions" asp-action="Index" class="btn btn-primary">Ir a Adopciones</a>
+            </div>
+        </div>
+    </div>
+</div>
