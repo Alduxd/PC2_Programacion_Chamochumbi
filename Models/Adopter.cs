@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetAdoptionApp.Models
 {
@@ -25,6 +26,10 @@ namespace PetAdoptionApp.Models
         [Phone]
         [StringLength(20)]
         public string PhoneNumber { get; set; }
+        
+        // Propiedad calculada para mostrar el nombre completo
+        [NotMapped]
+        public string FullName => $"{FirstName} {LastName}";
         
         // Relación con Adoption (un adoptante puede tener muchas adopciones)
         public virtual ICollection<Adoption> Adoptions { get; set; }

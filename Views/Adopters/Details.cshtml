@@ -1,0 +1,56 @@
+@model PetAdoptionApp.Models.Adopter
+
+@{
+    ViewData["Title"] = "Detalles de Adoptante";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@Model.FirstName @Model.LastName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.FirstName</dd>
+        
+        <dt class="col-sm-3">Apellido</dt>
+        <dd class="col-sm-9">@Model.LastName</dd>
+        
+        <dt class="col-sm-3">Correo Electrónico</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+        
+        <dt class="col-sm-3">Teléfono</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+    </dl>
+    
+    <h5 class="mt-4">Mascotas Adoptadas</h5>
+    @if (Model.Adoptions != null && Model.Adoptions.Any())
+    {
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Fecha de Adopción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var adoption in Model.Adoptions)
+                {
+                    <tr>
+                        <td>@adoption.Pet.Name</td>
+                        <td>@adoption.Pet.Type</td>
+                        <td>@adoption.AdoptionDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Este adoptante no tiene mascotas adoptadas.</p>
+    }
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+</div>
