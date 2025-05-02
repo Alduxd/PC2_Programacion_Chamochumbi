@@ -1,0 +1,28 @@
+@model PetAdoptionApp.Models.Pet
+
+@{
+    ViewData["Title"] = "Detalles de Mascota";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+        
+        <dt class="col-sm-3">Edad</dt>
+        <dd class="col-sm-9">@Model.Age</dd>
+        
+        <dt class="col-sm-3">Tipo</dt>
+        <dd class="col-sm-9">@Model.Type</dd>
+        
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">@(Model.IsAdopted ? "Adoptada" : "Disponible")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+</div>
